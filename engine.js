@@ -940,3 +940,29 @@ document.addEventListener('DOMContentLoaded', () => {
         next();
     };
 });
+ window.fadeOut = function() {
+       document.body.style.backgroundColor = 'black';
+        const elements = document.body.querySelectorAll("*:not(script):not(style)");
+        elements.forEach(el => {
+            el.style.opacity = '0';
+        });
+        setTimeout(() => {
+            elements.forEach(el => {
+                el.style.display = 'none';
+            });
+        }, 300);
+ }
+ window.fadeIn = function() {
+       document.body.style.backgroundColor = 'white';
+        const elements = document.body.querySelectorAll("*:not(script):not(style)");
+        elements.forEach(el => {
+            el.style.display = '';
+            el.style.opacity = '0';
+        });
+        setTimeout(() => {
+            elements.forEach(el => {
+                el.style.transition = 'opacity 0.3s ease-in';
+                el.style.opacity = '1';
+            });
+        }, 10);
+ }
